@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Freedom Grass - Premium Landscaping Services</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f8f9fa;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, #2d5a27, #4a7c59);
+            color: white;
+            padding: 1rem 0;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .logo {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #90EE90;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 2rem;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+        }
+
+        nav a:hover {
+            background-color: rgba(255,255,255,0.1);
+            color: #90EE90;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), 
+                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><rect fill="%234a7c59" width="1200" height="600"/><path fill="%2390EE90" opacity="0.3" d="M0,300 Q300,200 600,300 T1200,300 L1200,600 L0,600 Z"/></svg>');
+            background-size: cover;
+            background-position: center;
+            height: 70vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .hero-content p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+        }
+
+        .cta-button {
+            background: linear-gradient(45deg, #90EE90, #32CD32);
+            color: #2d5a27;
+            padding: 15px 30px;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 25px rgba(144, 238, 144, 0.3);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 35px rgba(144, 238, 144, 0.4);
+        }
+
+        /* Section Styling */
+        .section {
+            padding: 4rem 0;
+            margin: 2rem 0;
+        }
+
+        .section h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: #2d5a27;
+            position: relative;
+        }
+
+        .section h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(45deg, #90EE90, #32CD32);
+            border-radius: 2px;
+        }
+
+        /* Gallery Section */
+        .gallery {
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            margin-bottom: 2rem;
+        }
+
+        .photo-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .photo-placeholder {
+            aspect-ratio: 16/10;
+            background: linear-gradient(135deg, #e8f5e8, #d4edd4);
+            border: 3px dashed #90EE90;
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #4a7c59;
+            font-size: 1.1rem;
+            font-weight: 500;
+            text-align: center;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .photo-placeholder:hover {
+            background: linear-gradient(135deg, #d4edd4, #c0e6c0);
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(144, 238, 144, 0.3);
+        }
+
+        /* Video Section */
+        .video-section {
+            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+            border-radius: 15px;
+            padding: 2rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+        }
+
+        .video-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .video-placeholder {
+            aspect-ratio: 16/9;
+            background: linear-gradient(135deg, #2d5a27, #4a7c59);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 3rem;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .video-placeholder::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .video-placeholder:hover::before {
+            left: 100%;
+        }
+
+        .video-placeholder:hover {
+            transform: scale(1.05);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.2);
+        }
+
+        .play-icon {
+            font-size: 4rem;
+            opacity: 0.8;
+        }
+
+        /* Contact Section */
+        .contact-section {
+            background: white;
+            border-radius: 15px;
+            padding: 3rem 2rem;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+        }
+
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .form-group {
+            margin-bottom: 2rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: #2d5a27;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 15px;
+            border: 2px solid #e9ecef;
+            border-radius: 10px;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+            background-color: #f8f9fa;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #90EE90;
+            background-color: white;
+            box-shadow: 0 0 0 3px rgba(144, 238, 144, 0.1);
+        }
+
+        .form-group textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        .submit-btn {
+            background: linear-gradient(45deg, #2d5a27, #4a7c59);
+            color: white;
+            padding: 15px 40px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            width: 100%;
+        }
+
+        .submit-btn:hover {
+            background: linear-gradient(45deg, #1e3f1a, #2d5a27);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(45, 90, 39, 0.3);
+        }
+
+        /* Footer */
+        footer {
+            background: linear-gradient(135deg, #1e3f1a, #2d5a27);
+            color: white;
+            text-align: center;
+            padding: 3rem 0;
+            margin-top: 4rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h3 {
+            margin-bottom: 1rem;
+            color: #90EE90;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255,255,255,0.2);
+            padding-top: 2rem;
+            margin-top: 2rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .photo-grid,
+            .video-grid {
+                grid-template-columns: 1fr;
+            }
+
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .section {
+            animation: fadeInUp 0.8s ease-out;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">🌿 Freedom Grass</div>
+                <nav>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#gallery">Gallery</a></li>
+                        <li><a href="#videos">Videos</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>Transform Your Outdoor Space</h1>
+            <p>Premium landscaping services that bring your vision to life</p>
+            <a href="#contact" class="cta-button">Get Free Quote</a>
+        </div>
+    </section>
+
+    <div class="container">
+        <section id="gallery" class="section">
+            <h2>Our Work Gallery</h2>
+            <div class="gallery">
+                <div class="photo-grid">
+                    <div class="photo-placeholder">
+                        📸 Garden Design Project<br>
+                        <small>Click to upload photo</small>
+                    </div>
+                    <div class="photo-placeholder">
+                        📸 Lawn Installation<br>
+                        <small>Click to upload photo</small>
+                    </div>
+                    <div class="photo-placeholder">
+                        📸 Landscape Maintenance<br>
+                        <small>Click to upload photo</small>
+                    </div>
+                    <div class="photo-placeholder">
+                        📸 Tree & Shrub Care<br>
+                        <small>Click to upload photo</small>
+                    </div>
+                    <div class="photo-placeholder">
+                        📸 Irrigation Systems<br>
+                        <small>Click to upload photo</small>
+                    </div>
+                    <div class="photo-placeholder">
+                        📸 Hardscape Features<br>
+                        <small>Click to upload photo</small>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="videos" class="section">
+            <h2>Project Videos</h2>
+            <div class="video-section">
+                <div class="video-grid">
+                    <div class="video-placeholder">
+                        <div class="play-icon">▶️</div>
+                        <div style="position: absolute; bottom: 20px; left: 20px; font-size: 1rem;">
+                            Before & After Transformations
+                        </div>
+                    </div>
+                    <div class="video-placeholder">
+                        <div class="play-icon">▶️</div>
+                        <div style="position: absolute; bottom: 20px; left: 20px; font-size: 1rem;">
+                            Our Team at Work
+                        </div>
+                    </div>
+                    <div class="video-placeholder">
+                        <div class="play-icon">▶️</div>
+                        <div style="position: absolute; bottom: 20px; left: 20px; font-size: 1rem;">
+                            Client Testimonials
+                        </div>
+                    </div>
+                    <div class="video-placeholder">
+                        <div class="play-icon">▶️</div>
+                        <div style="position: absolute; bottom: 20px; left: 20px; font-size: 1rem;">
+                            Seasonal Care Tips
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="section">
+            <h2>Get In Touch</h2>
+            <div class="contact-section">
+                <form class="contact-form" id="contactForm">
+                    <div class="form-group">
+                        <label for="name">Full Name *</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">Email Address *</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="phone">Phone Number</label>
+                        <input type="tel" id="phone" name="phone">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="service">Service Needed</label>
+                        <select id="service" name="service" style="width: 100%; padding: 15px; border: 2px solid #e9ecef; border-radius: 10px; font-size: 1rem; background-color: #f8f9fa;">
+                            <option value="">Select a service...</option>
+                            <option value="lawn-care">Lawn Care & Maintenance</option>
+                            <option value="garden-design">Garden Design</option>
+                            <option value="landscaping">Full Landscaping</option>
+                            <option value="irrigation">Irrigation Systems</option>
+                            <option value="tree-care">Tree & Shrub Care</option>
+                            <option value="hardscape">Hardscape Installation</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="message">Your Message *</label>
+                        <textarea id="message" name="message" placeholder="Tell us about your project, property size, timeline, and any specific requirements..." required></textarea>
+                    </div>
+                    
+                    <button type="submit" class="submit-btn">Send Message</button>
+                </form>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Freedom Grass Landscaping</h3>
+                    <p>Transforming outdoor spaces with professional landscaping services. Your vision, our expertise.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Services</h3>
+                    <p>• Lawn Care & Maintenance<br>
+                       • Garden Design & Installation<br>
+                       • Irrigation Systems<br>
+                       • Tree & Shrub Care</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact Info</h3>
+                    <p>📧 info@freedomgrass.com<br>
+                       📞 (555) 123-LAWN<br>
+                       📍 Serving Your Local Area</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Freedom Grass Landscaping. All rights reserved. | Professional landscaping services you can trust.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Form submission handler
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form data
+            const formData = new FormData(this);
+            const data = Object.fromEntries(formData);
+            
+            // Simple validation
+            if (!data.name || !data.email || !data.message) {
+                alert('Please fill in all required fields.');
+                return;
+            }
+            
+            // Simulate form submission
+            const submitBtn = this.querySelector('.submit-btn');
+            const originalText = submitBtn.textContent;
+            
+            submitBtn.textContent = 'Sending...';
+            submitBtn.style.background = '#6c757d';
+            
+            setTimeout(() => {
+                alert('Thank you for your message! We will contact you soon to discuss your landscaping project.');
+                this.reset();
+                submitBtn.textContent = originalText;
+                submitBtn.style.background = '';
+            }, 2000);
+        });
+
+        // Photo placeholder click handlers
+        document.querySelectorAll('.photo-placeholder').forEach(placeholder => {
+            placeholder.addEventListener('click', function() {
+                alert('Photo upload functionality would be implemented here. This would typically open a file browser to select and upload images of your landscaping projects.');
+            });
+        });
+
+        // Video placeholder click handlers
+        document.querySelectorAll('.video-placeholder').forEach(placeholder => {
+            placeholder.addEventListener('click', function() {
+                alert('Video player would be implemented here. This could play promotional videos, project showcases, or client testimonials.');
+            });
+        });
+
+        // Add animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe all sections for animation
+        document.querySelectorAll('.section').forEach(section => {
+            section.style.opacity = '0';
+            section.style.transform = 'translateY(30px)';
+            section.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+            observer.observe(section);
+        });
+    </script>
+</body>
+</html>
